@@ -883,3 +883,19 @@ dist/**/*
 # ignore yarn.lock
 yarn.lock
 ```
+
+- Run the following commands
+
+```sh
+$ git init
+$ git add .
+$ git commit -m "Initial Commit"
+```
+
+- Create a `Github Repo` and push it
+
+```sh
+git remote add origin git@github.com:manujgogoi/nodeapi.git
+git branch -M main
+git push -u origin main
+```
