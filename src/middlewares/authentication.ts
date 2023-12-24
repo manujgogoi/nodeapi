@@ -81,7 +81,7 @@ export const isAuthenticated = async (req: AuthenticatedRequest, res: express.Re
             const accessToken = jwt.sign(accessPayload, accessTokenSecret, { expiresIn: accessTokenExpiry})
     
             res.header("Authentication", accessToken)
-                .cookie("refreshToken", refreshToken, { httpOnly: true, sameSite: 'none', secure: true });
+                .cookie("refreshToken", refreshToken, { httpOnly: true, sameSite: 'none', secure: false });
 
             req.user = accessPayload.user;
             next();
