@@ -12,7 +12,8 @@ const createServer = () => {
     const allowedOrigins = ['http://localhost:3000'];
 
     const options: cors.CorsOptions = {
-        origin: allowedOrigins
+        origin: allowedOrigins,
+        credentials: true,
     };
 
     // Then pass these options to cors:
