@@ -8,9 +8,21 @@ import router from './routers/index'
 const createServer = () => {
     const app = express();
 
-    app.use(cors({
-        credentials: true,
-    }))
+    // CORS Section
+    const allowedOrigins = ['http://localhost:3000'];
+
+    const options: cors.CorsOptions = {
+        origin: allowedOrigins
+    };
+
+    // Then pass these options to cors:
+    app.use(cors(options));
+
+    app.use(express.json());
+    // CORS Section Ends
+    // app.use(cors({
+    //     credentials: true,
+    // }))
     
     app.use(compression())
     app.use(cookieParser())
