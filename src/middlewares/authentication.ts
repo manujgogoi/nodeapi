@@ -31,6 +31,8 @@ export interface AuthenticatedRequest extends express.Request {
 export const isAuthenticated = async (req: AuthenticatedRequest, res: express.Response, next: express.NextFunction) => {
     const accessToken = req.header('Authorization') || "";
     const refreshToken = req.cookies['refreshToken'];
+    console.log("Middleware: access Token: ", accessToken);
+    console.log("Middleware: refresh Token: ", refreshToken);
 
     if (!accessToken && !refreshToken) {
         return res.status(401).json({
