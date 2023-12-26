@@ -110,8 +110,11 @@ export const login = async (req: express.Request, res: express.Response) => {
                 const accessToken = jwt.sign(accessPayload, accessTokenSecret, { expiresIn: accessTokenExpiry});
                 const refreshToken = jwt.sign(refreshPayload, refreshTokenSecret, { expiresIn: refreshTokenExpiry});
 
-                res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict', secure: true })
-                .header('Authorization', accessToken);
+                res.cookie('refreshToken', refreshToken, { httpOnly: true, sameSite: 'strict', secure: true });
+                res.set({
+                    'Authorization': accessToken,
+                    'Access-Control-Expose-Headers': 'Authorization'
+                })
 
                 // Return Auth Success
                 res.status(200).json({
