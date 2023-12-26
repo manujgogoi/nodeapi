@@ -9,7 +9,7 @@ const createServer = () => {
     const app = express();
 
     // CORS Section
-    const allowedOrigins = ['http://localhost:3000'];
+    const allowedOrigins = ['http://localhost:5173'];
 
     const options: cors.CorsOptions = {
         origin: allowedOrigins,
